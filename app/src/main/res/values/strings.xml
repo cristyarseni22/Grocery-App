@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Cristian\'s Grocery Store</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="all_you_need_is_in_one_place">All you need is in one place</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="new_user">New user? Signup Now</string>
+    <string name="toLogin">Have an account? Login Now</string>
+    <string name="skipLogin">Skip Login</string>
+</resources>

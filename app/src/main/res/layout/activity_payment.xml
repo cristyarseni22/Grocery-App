@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3E3E3"
+    android:orientation="vertical"
+    tools:context="view.activities.PaymentActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_background">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40dp"
+                android:layout_gravity="start"
+                android:layout_marginEnd="@dimen/_16sp"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="vertical"
+        android:padding="@dimen/_16sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/select_payment_option"
+            android:textSize="@dimen/_20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/checkbox_cash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50dp"
+            android:padding="@dimen/_20dp"
+            android:text="@string/cash_on_delivery"
+            android:textSize="@dimen/_16sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_internal_banking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20dp"
+            android:text="@string/internal_banking"
+            android:textSize="@dimen/_16sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_debit_credit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20dp"
+            android:text="@string/debit_card_credit_card"
+            android:textSize="@dimen/_16sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_paypal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_20dp"
+            android:text="@string/pay_pal"
+            android:textSize="@dimen/_16sp" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_payment"
+            android:layout_width="@dimen/_200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_70dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:background="@drawable/button_rounded"
+            android:text="@string/pay"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

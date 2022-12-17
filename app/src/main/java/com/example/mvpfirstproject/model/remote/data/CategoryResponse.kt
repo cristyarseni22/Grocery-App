@@ -1,5 +1,7 @@
 package com.example.mvpfirstproject.model.remote.data
 
+import java.io.Serializable
+
 data class CategoryResponse(
     val count: Int,
     val `data`: List<CategoryData>,
@@ -16,4 +18,8 @@ data class CategoryData(
     val position: Int = -1,
     val slug: String = "",
     val status: Boolean = false
-)
+) : Serializable {
+    companion object {
+        const val KEY_CATEGORY = "category"
+    }
+}

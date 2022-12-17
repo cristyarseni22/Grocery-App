@@ -1,6 +1,6 @@
 package com.example.mvpfirstproject.presenter.category
 
-import com.example.mvpfirstproject.model.remote.CategoryCallback
+import com.example.mvpfirstproject.model.remote.CategoryOperationalCallback
 import com.example.mvpfirstproject.model.remote.data.CategoryResponse
 import com.example.mvpfirstproject.model.remote.handlers.CategoryVolleyHandler
 
@@ -10,15 +10,15 @@ class CategoryPresenter(
 ) : CategoryMVP.CategoryPresenter {
     override fun categoryCall(): String {
         categoryView.onLoad(true)
-        val message = volleyHandler.categoryCall(object : CategoryCallback {
+        val message = volleyHandler.categoryCall(object : CategoryOperationalCallback {
             override fun onSuccess(response: CategoryResponse) {
                 categoryView.onLoad(false)
-                categoryView.setResult(response)
+                categoryView.setCategoryResult(response)
             }
 
             override fun onFailure(result: CategoryResponse) {
                 categoryView.onLoad(false)
-                categoryView.setResult(result)
+                categoryView.setCategoryResult(result)
             }
         })
         return message

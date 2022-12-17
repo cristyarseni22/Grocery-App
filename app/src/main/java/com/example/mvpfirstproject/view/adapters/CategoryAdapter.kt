@@ -17,6 +17,7 @@ class CategoryAdapter(
 ) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     private lateinit var binding: ItemCategoryViewBinding
+    private lateinit var optionSelectedListener: (CategoryData, Int) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -25,15 +26,21 @@ class CategoryAdapter(
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.apply {
-            val cat = category[position]
+        val category = category[position]
+        holder.bind(category)
 
-             bind(cat)
-
+        holder.itemView.setOnClickListener {
+            if (this::optionSelectedListener.isInitialized) {
+                optionSelectedListener(category, position)
+            }
         }
     }
 
     override fun getItemCount() = category.size
+
+    fun setOnOptionSelectListener(listener: (CategoryData, Int) -> Unit) {
+        this.optionSelectedListener = listener
+    }
 
     inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -49,7 +56,7 @@ class CategoryAdapter(
             binding.tvCategoryName.text = category.catName
 
             Glide.with(binding.root).load(url)
-                .placeholder(R.drawable.ic_round_warning_24).into(binding.ivCategory)
+                .placeholder(R.drawable.loading).into(binding.ivCategory)
         }
     }
 }

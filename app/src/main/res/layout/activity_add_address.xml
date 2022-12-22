@@ -2,12 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/address_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CFCFCF"
     tools:context=".view.activities.AddAddressActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/toolbar_background"
@@ -34,45 +36,96 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.17" />
 
-    <EditText
-        android:id="@+id/edt_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:background="@drawable/et_custom2"
-        android:hint="Title"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/circularProgressBar"
+        android:layout_width="@dimen/_117dp"
+        android:layout_height="@dimen/_119dp"
+        android:elevation="@dimen/_10dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="#AEE7EAE9"
+        app:indicatorDirectionCircular="clockwise"
+        app:indicatorSize="@dimen/_100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guidLine1" />
+        app:layout_constraintTop_toTopOf="@+id/appBarLayout2"
+        app:trackColor="#8B36FFC6"
+        app:trackThickness="@dimen/_8dp" />
 
     <EditText
-        android:id="@+id/editAddress"
+        android:id="@+id/edt_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:background="@drawable/et_custom2"
+        android:hint="@string/city"
+        android:padding="@dimen/_10dp"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintTop_toTopOf="@+id/guidLine1" />
+
+    <EditText
+        android:id="@+id/edt_street_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:background="@drawable/et_custom2"
+        android:hint="@string/street_name"
+        android:padding="@dimen/_10dp"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_city" />
+
+    <EditText
+        android:id="@+id/edt_zip_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/_12dp"
         android:background="@drawable/et_custom2"
-        android:hint="Address"
-        android:padding="10dp"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/edt_title" />
+        android:hint="@string/zip_code"
+        android:padding="@dimen/_10dp"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_house_no" />
+
+    <EditText
+        android:id="@+id/edt_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:background="@drawable/et_custom2"
+        android:hint="@string/type"
+        android:padding="@dimen/_10dp"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_zip_code" />
+
+    <EditText
+        android:id="@+id/edt_house_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_12dp"
+        android:background="@drawable/et_custom2"
+        android:hint="@string/house_number"
+        android:padding="@dimen/_10dp"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_street_name"
+        tools:layout_editor_absoluteX="9dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_save_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="@dimen/_80dp"
         android:background="@drawable/button_rounded"
-        android:padding="16dp"
-        android:text="save address"
+        android:padding="@dimen/_16dp"
+        android:text="@string/save_address"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAddress" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

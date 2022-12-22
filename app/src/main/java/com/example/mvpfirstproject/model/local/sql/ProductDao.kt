@@ -25,7 +25,7 @@ class ProductDao(context: Context) {
         while (cursor.moveToNext()) {
             val id = cursor.getLong(cursor.getColumnIndex("product_id"))
             val name = cursor.getString(cursor.getColumnIndex("product_name"))
-            val price = cursor.getFloat(cursor.getColumnIndex("price"))
+            val price = cursor.getDouble(cursor.getColumnIndex("price"))
             val qty = cursor.getInt(cursor.getColumnIndex("qty"))
             val image = cursor.getString(cursor.getColumnIndex("image"))
 

@@ -21,9 +21,8 @@ class PaymentActivity : AppCompatActivity() {
 
         init()
 
-        val intnt = intent
-        addressData = intnt.getSerializableExtra(AddressData.KEY_ADDRESS) as AddressData
-
+        val intent = intent
+        addressData = intent.getSerializableExtra(AddressData.KEY_ADDRESS) as AddressData
 
         binding.buttonPayment.setOnClickListener {
             val intent = Intent(this, OrderConfirmationActivity::class.java)

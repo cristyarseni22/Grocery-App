@@ -5,10 +5,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mvpfirstproject.R
 import com.example.mvpfirstproject.databinding.ActivityCartBinding
 import com.example.mvpfirstproject.model.local.sql.ProductDao
+import com.example.mvpfirstproject.model.remote.Constants
 import com.example.mvpfirstproject.model.remote.data.ProductsData
 import com.example.mvpfirstproject.view.adapters.CartAdapter
 
@@ -72,7 +74,6 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnAdapterInteraction {
 
         binding.textViewDeliveryAmount.text = "$ $delivery"
         binding.textViewTotalAmount.text = "$ $orderAmount"
-
     }
 
     private fun isCartEmpty(): Boolean {
@@ -93,8 +94,6 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnAdapterInteraction {
     override fun onClickedItemListener(view: View, position: Int, id: String) {
         val dao = ProductDao(baseContext)
 
-//        val product: ProductsData = products[position]
-
         when (view.id) {
             R.id.button_delete -> {
                 dao.deleteProduct(id)
@@ -103,24 +102,6 @@ class CartActivity : AppCompatActivity(), CartAdapter.OnAdapterInteraction {
                 calculateTotals()
                 isCartEmpty()
             }
-
-//            R.id.iv_minus -> {
-//                if (product.quantity > 0) {
-//                    product.quantity--
-//                    tv_qtyu.text = product.quantity.toString()
-//                    dao.updateProduct(product, product.qty)
-//                    adapter.notifyDataSetChanged()
-//                } else {
-//                    dao.deleteProduct(product.product_id)
-//                    products.removeAt(position)
-//                    adapter.notifyDataSetChanged()
-//                }
-//            }
-//            R.id.iv_add -> {
-//                product.qty++
-//                tv_qtyu.text = product.qty.toString()
-//                adapter.notifyDataSetChanged()
-//            }
         }
     }
 }

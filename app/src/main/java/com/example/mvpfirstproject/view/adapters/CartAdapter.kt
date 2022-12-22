@@ -16,8 +16,6 @@ import com.squareup.picasso.Picasso
 class CartAdapter(var mContext: Context, var productList: MutableList<ProductsData>) :
     RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
 
-//    var dao = ProductDao(mContext)
-
     private var listener: OnAdapterInteraction? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,7 +31,6 @@ class CartAdapter(var mContext: Context, var productList: MutableList<ProductsDa
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val product: ProductsData = productList[position]
         holder.bind(product, position)
-
     }
 
     inner class MyViewHolder(val binding: ViewHolderCartBinding) :
@@ -53,15 +50,6 @@ class CartAdapter(var mContext: Context, var productList: MutableList<ProductsDa
             binding.buttonDelete.setOnClickListener {
                 listener?.onClickedItemListener(it, position, product._id)
             }
-
-//            binding.ivMinus.setOnClickListener {
-//                listener?.onClickedItemListener(it, position, product._id)
-//
-//            }
-//
-//            binding.ivAdd.setOnClickListener {
-//                listener?.onClickedItemListener(it, position, product._id)
-//            }
         }
     }
 

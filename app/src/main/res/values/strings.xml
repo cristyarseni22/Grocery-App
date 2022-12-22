@@ -28,4 +28,13 @@
     <string name="sub_total">Sub Total</string>
     <string name="go_shopping">Go Shopping</string>
     <string name="items">Items:</string>
+    <string name="add">Add</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="save_address">Save address</string>
+    <string name="type">Type</string>
+    <string name="house_number">House Number</string>
+    <string name="street_name">Street Name</string>
+    <string name="city">City</string>
+    <string name="zip_code">Zip code</string>
+    <string name="your_order_has_been_placed_successfully">Your order has been placed successfully!</string>
 </resources>

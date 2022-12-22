@@ -1,6 +1,7 @@
 package com.example.mvpfirstproject.view.activities
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,8 +12,8 @@ import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.mvpfirstproject.databinding.ActivityAddressBinding
-import com.example.mvpfirstproject.model.remote.Constants.ADDRESS_END_POINT
 import com.example.mvpfirstproject.model.remote.Constants.BASE_URL
+import com.example.mvpfirstproject.model.remote.Constants.GET_ADDRESS_END_POINT
 import com.example.mvpfirstproject.model.remote.Constants.LOGIN_DETAILS
 import com.example.mvpfirstproject.model.remote.Constants.USER_ID
 import com.example.mvpfirstproject.model.remote.data.AddressData
@@ -55,8 +56,10 @@ class AddressActivity : AppCompatActivity() {
     }
 
     private fun getData() {
-
-        val url = "${BASE_URL}${ADDRESS_END_POINT}"
+        val sharedPreferences =
+            baseContext.getSharedPreferences(LOGIN_DETAILS, Context.MODE_PRIVATE)
+        val userID = sharedPreferences.getString(USER_ID, "")
+        val url = "${BASE_URL}${GET_ADDRESS_END_POINT}$userID"
 
         val request = StringRequest(
             Request.Method.GET,
@@ -64,7 +67,7 @@ class AddressActivity : AppCompatActivity() {
             {
                 val gson = Gson()
                 val addressResponse = gson.fromJson(it, AddressResponse::class.java)
-                addressList = addressResponse.addresses
+                addressList = addressResponse.data
                 adapter = AddressAdapter(addressList)
 
                 binding.rvAddress.adapter = adapter

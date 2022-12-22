@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:layout_marginVertical="8dp"
+    android:layout_margin="@dimen/_10dp"
+    android:layout_marginVertical="@dimen/_8dp"
     android:background="@drawable/product_view_shape_background"
     android:padding="@dimen/_12dp">
 
@@ -13,7 +13,7 @@
         android:id="@+id/cardView_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/_10dp"
         android:background="#76EA24"
         app:cardCornerRadius="@dimen/_10dp"
         app:cardElevation="@dimen/_5dp"
@@ -24,21 +24,18 @@
         <ImageView
             android:id="@+id/iv_product_photo"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/_200dp"
             android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="2:4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent=".25" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.cardview.widget.CardView>
-
 
     <TextView
         android:id="@+id/tv_product_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/_12dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,9 +45,9 @@
 
     <TextView
         android:id="@+id/tv_product_price"
-        android:layout_width="196dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/_8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#FF0000"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:minWidth="48dp"
+            android:minWidth="@dimen/_48dp"
             android:text="0"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -107,13 +104,12 @@
         android:layout_height="@dimen/_30dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_rounded"
-        android:text="Add"
+        android:text="@string/add"
         android:textColor="@color/white"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/linear_layout"
         app:layout_constraintStart_toStartOf="@+id/linear_layout"
         app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_to_card"
@@ -121,9 +117,9 @@
         android:layout_height="37dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/button_rounded"
-        android:text="Add to cart"
+        android:text="@string/add_to_cart"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="@dimen/_12sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

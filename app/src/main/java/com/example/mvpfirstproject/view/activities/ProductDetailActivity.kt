@@ -1,5 +1,6 @@
 package com.example.mvpfirstproject.view.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -45,35 +46,11 @@ class ProductDetailActivity : AppCompatActivity() {
                 startActivity(Intent(baseContext, CartActivity::class.java))
             }
         }
+        getProductDetails()
 
         product = ProductsData()
 
         dao = ProductDao(baseContext)
-
-//        binding.btnAddToCard.setOnClickListener {
-//            binding.btnAddToCard.visibility = View.GONE
-//            binding.linearLayout.visibility = View.VISIBLE
-//            binding.btnAddToCardAdd.visibility = View.VISIBLE
-//        }
-//
-//        binding.ivAdd.setOnClickListener {
-//            product.quantity++
-//            dao.updateProduct(product, product.quantity)
-//            binding.tvQtyu.text = product.quantity.toString()
-//        }
-//
-//        binding.ivMinus.setOnClickListener {
-//            product.quantity--
-//            dao.updateProduct(product, product.quantity)
-//            binding.tvQtyu.text = product.quantity.toString()
-//        }
-//
-//        binding.btnAddToCardAdd.setOnClickListener {
-//            val x = binding.tvQtyu.text.toString()
-//            if (x > 0.toString()) {
-//                dao.updateProduct(product, product.quantity)
-//            }
-//        }
 
         binding.btnAddToCard.setOnClickListener {
             binding.btnAddToCard.visibility = View.GONE
@@ -96,22 +73,19 @@ class ProductDetailActivity : AppCompatActivity() {
                 binding.linearLayout.visibility = View.GONE
                 binding.btnAddToCardAdd.visibility = View.GONE
             }
-            dao.updateProduct(product, product.quantity)
             binding.tvQtyu.text = product.quantity.toString()
         }
 
         binding.btnAddToCardAdd.setOnClickListener {
-            Toast.makeText(
-                binding.root.context,
-                "${product.quantity} products were added to cart",
-                Toast.LENGTH_SHORT
-            ).show()
-            dao.addProduct(product)
+            if (product.quantity != 0) {
+                dao.addProduct(product)
+            } else {
+                Toast.makeText(this,"Error to add", Toast.LENGTH_SHORT).show()
+            }
         }
-
-        getProductDetails()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun getProductDetails() {
         productId = intent.getStringExtra(KEY_PRODUCT).toString()
         val url = "${BASE_URL}${PRODUCT_DETAILS_EP}$productId"
@@ -126,12 +100,11 @@ class ProductDetailActivity : AppCompatActivity() {
                 val product = response.data
                 binding.tvProductNameD.text = product.productName
                 binding.tvProductDescriptionD.text = product.description
-                binding.priceD.text = "$${product.price}"
+                binding.tvProductPrice.text = "$${product.price.toDouble()}"
 
                 val imageUrl = "${IMAGE_URL}${product.image}"
                 Picasso.get().load(imageUrl).placeholder(R.drawable.loading)
                     .error(R.drawable.noimage).into(binding.ivPhotoD)
-
             },
             {
                 it.printStackTrace()

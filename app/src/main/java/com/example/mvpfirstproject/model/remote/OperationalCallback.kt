@@ -28,8 +28,3 @@ interface OrderOperationalCallback {
     fun onSuccess(data: Any)
     fun onFailure(message: String)
 }
-//
-//interface AddressOperationalCallBack {
-//    fun onSuccess(message: String)
-//    fun onFailure(message: String)
-//}

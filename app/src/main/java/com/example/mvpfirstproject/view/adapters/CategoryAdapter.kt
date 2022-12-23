@@ -43,7 +43,6 @@ class CategoryAdapter(
     }
 
     inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         fun bind(category: CategoryData) {
             val url = IMAGE_URL + category.catImage
             try {

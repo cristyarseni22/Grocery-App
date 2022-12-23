@@ -24,7 +24,6 @@ class RegisterVolleyHandler(private val context: Context) {
 
         val url = BASE_URL + REGISTRATION_END_POINT
         val data = JSONObject()
-
         var message: String? = null
 
         data.put(FIRST_NAME, user.firstName)
@@ -49,5 +48,4 @@ class RegisterVolleyHandler(private val context: Context) {
         requestQueue.add(request)
         return message.toString()
     }
-
 }

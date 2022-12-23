@@ -52,20 +52,12 @@ class DashboardActivity : AppCompatActivity(), CategoryMVP.CategoryView, SearchM
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
-//        headerView = binding.navView.getHeaderView(0)
-//
-//        username = headerView.findViewById(R.id.nav_header_name)
-//
-//        val pref = getSharedPreferences(LOGIN_DETAILS, MODE_PRIVATE)
-//        username.text = pref.getString("name", FIRST_NAME)
-
         binding.navView.setNavigationItemSelectedListener {
             handleNavigationOperation(it)
             true
         }
 
         setupSearchEvents()
-
     }
 
     override fun setCategoryResult(result: CategoryResponse) {
@@ -111,7 +103,6 @@ class DashboardActivity : AppCompatActivity(), CategoryMVP.CategoryView, SearchM
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {

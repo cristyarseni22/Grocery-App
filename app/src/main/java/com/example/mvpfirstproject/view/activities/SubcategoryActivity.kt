@@ -35,7 +35,6 @@ class SubcategoryActivity : AppCompatActivity(), SubcategoryMVP.SubCategoryView 
     }
 
     override fun setResult(result: SubcategoryResponse) {
-
         subcategories = result.data
         productAdapter = ProductViewPagerAdapter(result.data)
         binding.viewPager.adapter = productAdapter
@@ -47,6 +46,5 @@ class SubcategoryActivity : AppCompatActivity(), SubcategoryMVP.SubCategoryView 
     }
 
     override fun onLoad(isLoading: Boolean) {
-
     }
 }

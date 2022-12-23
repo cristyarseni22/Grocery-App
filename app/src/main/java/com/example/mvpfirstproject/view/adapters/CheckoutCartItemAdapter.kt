@@ -12,7 +12,7 @@
 //import com.example.mvpfirstproject.model.remote.Constants.IMAGE_URL
 //
 //
-//class CheckoutCartItemAdapter(private val context: Context, val infoArrayList: ArrayList<CartItem>) :
+//class CheckoutCartItemAdapter(private val context: Context, private val infoArrayList: ArrayList<CartItem>) :
 //    RecyclerView.Adapter<CheckoutCartItemAdapter.CartItemHolder>() {
 //
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartItemHolder {

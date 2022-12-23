@@ -35,7 +35,7 @@ class OrderVolleyHandler(private val context: Context) {
             { response: JSONObject ->
                 message = response.getString("message")
                 val status = response.getInt("status")
-                if(status == 0){
+                if (status == 0) {
                     callback.onSuccess(message.toString())
                 } else {
                     callback.onFailure(message.toString())
@@ -49,46 +49,45 @@ class OrderVolleyHandler(private val context: Context) {
         return message.toString()
     }
 
-//    fun getOrdersFromApi(callback: OperationalCallback): String {
-//        val sharedPreferences =
-//            context.getSharedPreferences(Constants.LOGIN_DETAILS, Context.MODE_PRIVATE)
-//        val userId = sharedPreferences.getString(Constants.USER_ID, "")
-//
-//        val url = BASE_URL + ORDER_DETAIL_END_POINT + userId
-//        var message: String? = null
-//
-//
-//        val request = object: StringRequest(Request.Method.GET, url,
-//            Response.Listener {
-//                val gson = Gson()
-//                val orderResponse = gson.fromJson(it.toString(), OrderRequest::class.java)
-//                callback.onSuccess(orderResponse)
-//                Log.e("tag", it.toString())
-//            }, {
-//                Log.e("tag", it.toString())
-//            }){
-//        }
-//        requestQueue.add(request)
-//        return message.toString()
-//    }
+    fun getOrdersFromApi(callback: OperationalCallback): String {
+        val sharedPreferences =
+            context.getSharedPreferences(Constants.LOGIN_DETAILS, Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getString(Constants.USER_ID, "")
 
-//    fun getOrderDetailFromApi(orderId: String, callback: OperationalCallback): String {
-//        val url = BASE_URL + GET_ORDER_DETAIL_END_POINT + "order_id=" +orderId
-//        Log.e("url", "${url}")
-//        var message: String? = null
-//
-//
-//        val request = object: StringRequest(Request.Method.GET, url,
-//            Response.Listener {
-//                val gson = Gson()
-//                val orderDetailResponse = gson.fromJson(it.toString(), OrderDetailResponse::class.java)
+        val url = BASE_URL + ORDER_DETAIL_END_POINT + userId
+        val message: String? = null
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener {
+                val gson = Gson()
+                val orderResponse = gson.fromJson(it.toString(), OrderRequest::class.java)
+//                callback.onSuccess(orderResponse)
+                Log.e("tag", it.toString())
+            }, {
+                Log.e("tag", it.toString())
+            }) {
+        }
+        requestQueue.add(request)
+        return message.toString()
+    }
+
+    fun getOrderDetailFromApi(orderId: String, callback: OperationalCallback): String {
+        val url = BASE_URL + ORDER_DETAIL_END_POINT + "order_id=" + orderId
+        Log.e("url", "${url}")
+        var message: String? = null
+
+
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener {
+                val gson = Gson()
+                val orderDetailResponse = gson.fromJson(it.toString(), OrderRequest::class.java)
 //                callback.onSuccess(orderDetailResponse)
-//                Log.e("tag", it.toString())
-//            }, {
-//                Log.e("tag", it.toString())
-//            }){
-//        }
-//        requestQueue.add(request)
-//        return message.toString()
-//    }
+                Log.e("tag", it.toString())
+            }, {
+                Log.e("tag", it.toString())
+            }) {
+        }
+        requestQueue.add(request)
+        return message.toString()
+    }
 }

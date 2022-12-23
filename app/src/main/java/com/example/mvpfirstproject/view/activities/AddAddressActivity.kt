@@ -20,7 +20,6 @@ class AddAddressActivity : AppCompatActivity(), AddressMVP.AddressView {
         binding = ActivityAddAddressBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.ivBack.setOnClickListener {
             startActivity(Intent(baseContext, AddressActivity::class.java))
         }
@@ -31,18 +30,15 @@ class AddAddressActivity : AppCompatActivity(), AddressMVP.AddressView {
     }
 
     private fun setUpEvents() {
-
         val addressVolleyHandler = AddressVolleyHandler(this)
         presenter = AddressPresenter(addressVolleyHandler, this)
         binding.apply {
-
 
             val city = edtCity.text.toString()
             val street = edtStreetName.text.toString()
             val zipCode = edtZipCode.text.toString()
             val houseType = edtType.text.toString()
             val houseNo = edtHouseNo.text.toString()
-
 
             if (city.isEmpty()) {
                 Toast.makeText(baseContext, "City field cannot be empty", Toast.LENGTH_SHORT).show()

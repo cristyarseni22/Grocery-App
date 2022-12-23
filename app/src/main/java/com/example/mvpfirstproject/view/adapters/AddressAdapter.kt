@@ -37,7 +37,6 @@ class AddressAdapter(var addressList: List<AddressData>) :
             binding.tvStreetNameValue.text = address.streetName
             binding.tvZipCodeValue.text = address.pincode.toString()
 
-
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, PaymentActivity::class.java)
                 intent.putExtra(AddressData.KEY_ADDRESS, address)

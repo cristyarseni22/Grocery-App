@@ -34,7 +34,6 @@ class SearchAdapter(val context: Context, private val searchList: List<SearchDat
         fun bind(searchItem: SearchData) {
             binding.apply {
                 txtName.text = searchItem.productName
-//                txtDescription.text = searchItem.description
                 txtPrice.text = "\$${searchItem.price}"
                 val url = Constants.IMAGE_URL + searchItem.image
                 try {

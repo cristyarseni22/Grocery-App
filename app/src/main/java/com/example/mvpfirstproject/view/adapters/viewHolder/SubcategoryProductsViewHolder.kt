@@ -46,9 +46,7 @@ class SubcategoryProductsViewHolder(
                     intent.putExtra(KEY_PRODUCT, product._id)
                     binding.root.context.startActivity(intent)
                 }
-
                 binding.rvProducts.adapter = adapter
-
             },
             {
                 it.printStackTrace()
@@ -57,6 +55,5 @@ class SubcategoryProductsViewHolder(
         )
         queue.add(request)
     }
-
 }
 

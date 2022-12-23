@@ -22,8 +22,6 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed(Runnable {
             verifyLogin()
         }, time)
-
-//      startAnimation()
     }
 
     private fun verifyLogin() {
@@ -40,9 +38,4 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(Intent(baseContext, LoginActivity::class.java))
         }
     }
-
-//    private fun startAnimation() {
-//        val rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.combine_three_anim)
-//        binding.imageView.startAnimation(rotateAnimation)
-//    }
 }

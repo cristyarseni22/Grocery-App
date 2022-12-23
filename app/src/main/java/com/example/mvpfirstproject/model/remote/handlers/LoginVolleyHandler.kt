@@ -26,14 +26,12 @@ class LoginVolleyHandler(private val context: Context) {
 
         val url = BASE_URL + LOGIN_END_POINT
         val data = JSONObject()
-
         var message: String? = null
 
         data.put(EMAIL, user.email)
         data.put(PASSWORD, user.password)
         data.put(FIRST_NAME, user.firstName)
         data.put(USER_ID, user._id)
-
 
         val request = JsonObjectRequest(
             Request.Method.POST,
